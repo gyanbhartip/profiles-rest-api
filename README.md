@@ -8,12 +8,14 @@ This is the supplementary cheat sheet document for our course: [Build a Backend 
 
 <!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
-- [Git](#git)
-- [SSH Key Management](#ssh-key-management)
-- [Virtual Environments](#virtual-environments)
-- [Django Management Commands](#django-management-commands)
-- [Vagrant](#vagrant)
-- [Terminal / GitBash Commands](#terminal-gitbash-commands)
+- [Profiles REST API](#profiles-rest-api)
+- [Build a Backend REST API with Python \& Django - Beginner](#build-a-backend-rest-api-with-python--django---beginner)
+  - [Git](#git)
+  - [SSH Key Management](#ssh-key-management)
+  - [Virtual Environments](#virtual-environments)
+  - [Django Management Commands](#django-management-commands)
+  - [Vagrant](#vagrant)
+  - [Terminal / GitBash Commands](#terminal--gitbash-commands)
 
 <!-- /TOC -->
 
@@ -115,7 +117,13 @@ pip install -r requirements.txt
 **Create new Django project**
 
 ```
+//old version
 django-admin.py startproject profiles_project  .
+```
+
+```
+//newer versions
+python -m django startproject profiles_project .
 ```
 
 **Create new Django app**
