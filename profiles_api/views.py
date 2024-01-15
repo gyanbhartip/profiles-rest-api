@@ -1,7 +1,8 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status, viewsets
-from profiles_api import serializers, models
+from profiles_api import serializers, models, permissions
+from rest_framework.authentication import TokenAuthentication
 
 
 class HelloApiView(APIView):
@@ -108,3 +109,11 @@ class UserProfileViewSet(viewsets.ModelViewSet):
 
     serializer_class = serializers.UserProfilesSerializer
     queryset = models.UserProfile.objects.all()
+
+    # We add the authentication_classes and permission_classes attributes to the viewset class to specify the authentication and permission classes that we want to use for the viewset
+
+    authentication_classes = (
+        TokenAuthentication,
+    )  # the comma is needed to make it a tuple
+
+    permission_classes = (permissions.UpdateOwnProfile,)
