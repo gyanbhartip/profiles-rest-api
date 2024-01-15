@@ -1,6 +1,6 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import status, viewsets
+from rest_framework import status, viewsets, filters
 from profiles_api import serializers, models, permissions
 from rest_framework.authentication import TokenAuthentication
 
@@ -117,3 +117,12 @@ class UserProfileViewSet(viewsets.ModelViewSet):
     )  # the comma is needed to make it a tuple
 
     permission_classes = (permissions.UpdateOwnProfile,)
+
+    # We add the filter_backends attribute to the viewset class to specify the filter backends that we want to use for the viewset
+
+    filter_backends = (filters.SearchFilter,)
+    # We add the search_fields attribute to the viewset class to specify the fields that we want to search on
+    search_fields = (
+        "name",
+        "email",
+    )
